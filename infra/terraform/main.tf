@@ -36,6 +36,8 @@ resource "yandex_compute_instance" "vm" {
   boot_disk {
     initialize_params {
       image_id = var.yc_image_id
+      size     = 30
+      type     = "network-hdd"
     }
   }
 
