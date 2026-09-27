@@ -1,9 +1,3 @@
-variable "yc_token" {
-  type = string
-  description = "yandex IAM token"
-  sensitive = true
-}
-
 variable "yc_cloud_id" {
   type = string
   description = "yandex cloud id"
@@ -32,6 +26,6 @@ variable "ssh_user" {
 
 variable "ssh_public_key_path" {
   type        = string
-  default     = "~/.ssh/id_ed25519.pub"
+  default     = "C:/Users/Atim/.ssh/id_ed25519.pub"
   description = "path for public key"
 }
