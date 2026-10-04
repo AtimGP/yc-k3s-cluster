@@ -43,3 +43,8 @@
       bantime = 1h
     mode: '0644'
   notify: restart fail2ban
+
+- name: Allow all traffic from internal network
+  community.general.ufw:
+    rule: allow
+    from_ip: '10.131.0.0/24'

@@ -1,0 +1,21 @@
+- name: Download k3s install script
+  ansible.builtin.get_url:
+    url: https://get.k3s.io
+    dest: /tmp/k3s-install.sh
+    mode: '0755'
+
+- name: Read k3s token from control plane
+  ansible.builtin.slurp:
+    src: /var/lib/rancher/k3s/server/node-token
+  register: k3s_token_raw
+  delegate_to: "{{ groups['k3s_control_plane'][0] }}"
+  become: true
+
+- name: Install k3s agent
+  ansible.builtin.shell: |
+    INSTALL_K3S_VERSION={{ k3s_version }} \
+    K3S_URL=https://{{ hostvars[groups['k3s_control_plane'][0]]['internal_ip'] }}:6443 \
+    K3S_TOKEN={{ k3s_token_raw.content | b64decode | trim }} \
+    /tmp/k3s-install.sh
+  args:
+    creates: /usr/local/bin/k3s

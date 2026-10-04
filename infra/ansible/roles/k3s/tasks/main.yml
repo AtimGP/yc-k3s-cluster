@@ -1,0 +1,7 @@
+- name: Install k3s server
+  ansible.builtin.include_tasks: server.yml
+  when: inventory_hostname in groups['k3s_control_plane']
+
+- name: Install k3s agent
+  ansible.builtin.include_tasks: agent.yml
+  when: inventory_hostname in groups['k3s_workers']

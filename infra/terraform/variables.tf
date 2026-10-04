@@ -26,7 +26,7 @@ variable "ssh_user" {
 
 variable "ssh_public_key_path" {
   type        = string
-  default     = "C:/Users/Atim/.ssh/id_ed25519.pub"
+  default     = "/home/tim/.ssh/id_ed25519.pub"
   description = "path for public key"
 }
 

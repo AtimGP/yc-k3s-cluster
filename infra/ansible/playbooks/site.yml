@@ -4,3 +4,9 @@
   roles:
     - common
     - docker
+
+- name: Setup k3s cluster
+  hosts: k3s_cluster
+  become: true
+  roles:
+    - k3s
