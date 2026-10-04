@@ -29,3 +29,8 @@ variable "ssh_public_key_path" {
   default     = "C:/Users/Atim/.ssh/id_ed25519.pub"
   description = "path for public key"
 }
+
+variable "vm_count" {
+  type =  number
+  default = 3
+}

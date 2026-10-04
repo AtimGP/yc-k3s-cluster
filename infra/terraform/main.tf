@@ -106,11 +106,3 @@ resource "yandex_compute_instance" "vm" {
     ssh-keys = "${var.ssh_user}:${file(var.ssh_public_key_path)}"
   }
 }
-
-output "external_ip" {
-  value = yandex_compute_instance.vm[*].network_interface[0].nat_ip_address
-}
-
-output "internal_ips" {
-  value = yandex_compute_instance.vm[*].network_interface[0].ip_address
-}

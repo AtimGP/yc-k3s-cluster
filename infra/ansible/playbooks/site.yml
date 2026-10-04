@@ -1,0 +1,5 @@
+- name: Base setup for all nodes
+  hosts: k3s_cluster
+  become: true
+  roles:
+    - common

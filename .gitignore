@@ -7,5 +7,7 @@ sa-key.json
 *.tfstate
 *.tfstate.*
 
-crash.log
 .terraform.lock.hcl
+
+crash.log
+.vault_pass
