@@ -11,3 +11,6 @@ sa-key.json
 
 crash.log
 .vault_pass
+
+.vscode/
+.idea/
